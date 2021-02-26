@@ -29,7 +29,7 @@
 
   <!-- Spawn Jackal -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-	      args="-urdf -model jackal -param robot_description -x 0 -y 0 -z 0" />
+	      args="-urdf -model jackal -param robot_description -x -15 -y -15 -z 0" />
   
   <!-- View in RVIZ. -->
   <!-- <group if="$(arg rviz)">
