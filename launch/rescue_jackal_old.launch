@@ -3,9 +3,9 @@
 <launch>
   <arg name="gui"       default="true"/>
   <arg name="rviz"      default="true"/>
-  <arg name="config"    default="front_bumblebee2" />
   <!-- <arg name="config"    default="ouster" /> -->
-  <arg name="world"     default="$(find rescue_jackal)/worlds/lars_test.world"/>
+  <arg name="config"    default="front_laser" />
+  <arg name="world"     default="$(find rescue_jackal)/worlds/warehouse.world"/>
 
 
   <!-- Start Gazebo. -->
@@ -29,12 +29,12 @@
 
   <!-- Spawn Jackal -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-	      args="-urdf -model jackal -param robot_description -x -1 -y -2.5 -z 0" />
+	      args="-urdf -model jackal -param robot_description -x -15 -y -15 -z 0" />
   
   <!-- View in RVIZ. -->
-  <group if="$(arg rviz)">
+  <!-- <group if="$(arg rviz)">
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jackal_base)/rviz/jackal.rviz" >
     </node>
-  </group>
+  </group> -->
 
 </launch>
