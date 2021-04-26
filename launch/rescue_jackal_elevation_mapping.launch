@@ -5,7 +5,7 @@
   <arg name="rviz"      default="true"/>
   <!-- <arg name="config"    default="front_bumblebee2" /> -->
   <arg name="config"    default="ouster" />
-  <arg name="world"     default="$(find rescue_jackal)/worlds/lars_test.world"/>
+  <arg name="world"     default="$(find rescue_jackal)/worlds/test_arena.world"/>
 
 
   <!-- Start Gazebo. -->
@@ -29,7 +29,7 @@
 
   <!-- Spawn Jackal -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-	      args="-urdf -model jackal -param robot_description -x -1 -y -2.5 -z 0" />
+	      args="-urdf -model jackal -param robot_description -x 0 -y -1.25 -z 0" />
 
   <!-- <node ns="front" pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen">
       <remap from="left/image" to="left/image_raw"/>
@@ -48,6 +48,9 @@
     <rosparam command="load" file="$(find elevation_mapping)/config/sensor_processors/perfect.yaml" />
     <rosparam command="load" file="$(find elevation_mapping_demos)/config/postprocessing/postprocessor_pipeline.yaml" />
   </node>
+
+  <node pkg="rescue_jackal" type="rescue_jackal_node" name="grid_to_image_republisher_node" output="screen" />
+
   
   <!-- View in RVIZ. -->
   <group if="$(arg rviz)">

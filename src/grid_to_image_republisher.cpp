@@ -14,10 +14,10 @@ class SubscribeAndPublish
 public:
   SubscribeAndPublish()
   {
-    //Topic you want to publish
+    //create publisher
     pub_ = n_.advertise<sensor_msgs::Image>("/grid_map_image", 1);
 
-    //Topic you want to subscribe
+    //create subscriber
     sub_ = n_.subscribe("/elevation_mapping/elevation_map", 1, &SubscribeAndPublish::callback, this);
   }
 
@@ -27,9 +27,9 @@ public:
     cv_bridge::CvImage image;
     grid_map::GridMapRosConverter::fromMessage(msg, map, {"elevation"});
     grid_map::GridMapRosConverter::toCvImage(map,"elevation", sensor_msgs::image_encodings::MONO8, image);
-    //.... do something with the input and generate the output...
+    //republish image
     pub_.publish(image);
-    ROS_INFO("Republish images");
+    //ROS_INFO("Republish images");
   }
 
 private:
