@@ -3,9 +3,9 @@
 <launch>
   <arg name="gui"       default="true"/>
   <arg name="rviz"      default="true"/>
-  <arg name="config"    default="front_bumblebee2" />
-  <!-- <arg name="config"    default="ouster" /> -->
-  <arg name="world"     default="$(find rescue_jackal)/worlds/arena_test.world"/>
+  <arg name="config"    default="ouster" />
+  <!-- <arg name="config"    default="front_bumblebee2" /> -->
+  <arg name="world"     default="$(find rescue_jackal)/worlds/test_arena.world"/>
 
 
   <!-- Start Gazebo. -->

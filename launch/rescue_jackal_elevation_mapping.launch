@@ -29,7 +29,7 @@
 
   <!-- Spawn Jackal -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
-	      args="-urdf -model jackal -param robot_description -x 0 -y -1.25 -z 0" />
+	      args="-urdf -model jackal -param robot_description -x -2 -y -1.25 -z 0" />
 
   <!-- <node ns="front" pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" output="screen">
       <remap from="left/image" to="left/image_raw"/>
@@ -41,7 +41,7 @@
     <param name="from_frame" type="string" value="odom" />
     <param name="to_frame"   type="string" value="base_link" />
   </node>
-  
+
   <!-- Launch elevation mapping node. -->
   <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
     <rosparam command="load" file="$(find rescue_jackal)/config/elevation_mapping/jackal_robot.yaml" />
@@ -51,11 +51,11 @@
 
   <node pkg="rescue_jackal" type="rescue_jackal_node" name="grid_to_image_republisher_node" output="screen" />
 
-  
+
   <!-- View in RVIZ. -->
-  <group if="$(arg rviz)">
+  <!-- <group if="$(arg rviz)">
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find jackal_base)/rviz/jackal.rviz" >
     </node>
-  </group>
+  </group> -->
 
 </launch>
