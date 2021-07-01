@@ -18,4 +18,4 @@ Or this error can occure during catkin_make, change "filter_chain.hpp" to "filte
 compilation terminated."
 
 
-And hector_nist_arenas_gazebo
+And hector_nist_arenas_gazebo: https://github.com/tu-darmstadt-ros-pkg/hector_nist_arenas_gazebo
